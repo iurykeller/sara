@@ -1,0 +1,161 @@
+/* Estilo geral */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #1e3c72, #2a5298);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Container principal */
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+h1 {
+    font-size: 4rem;
+    text-shadow: 0 0 20px #ff6f91, 0 0 30px #ffcccb, 0 0 40px #fff, 0 0 50px rgba(255, 255, 255, 0.6);
+    animation: glow 2s infinite alternate, fadeIn 3s ease-in-out;
+}
+
+h1 span {
+    color: #ffcccb;
+    font-weight: bold;
+    text-shadow: 0 0 15px #ff99cc;
+}
+
+.date {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #ffecb3;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ffecb3;
+}
+
+/* Botão para música */
+.music-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+#play-music {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #ff6f91, #ffcccb);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 0 0 15px #fff;
+    box-shadow: 0 0 20px rgba(255, 108, 132, 0.8);
+    animation: pulse 2s infinite alternate;
+}
+
+#play-music:hover {
+    background: linear-gradient(135deg, #ff99cc, #ffe6eb);
+    box-shadow: 0 0 30px rgba(255, 144, 172, 1);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #ff6f91;
+    }
+    to {
+        text-shadow: 0 0 40px #ffcccb;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 108, 132, 0.8);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 108, 132, 1);
+    }
+}
+
+/* Animações de corações */
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.hearts::before,
+.hearts::after {
+    content: "❤️";
+    font-size: 2.5rem;
+    position: absolute;
+    animation: float 5s infinite;
+    opacity: 0.8;
+    color: #ff6f91;
+}
+
+.hearts::before {
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.hearts::after {
+    left: 80%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Flocos de neve */
+.snowflakes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 7s linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* Reflexos */
+#reflections {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
+}
